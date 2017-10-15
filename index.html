@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="styles.css">
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="index.js"></script>
+	<title></title>
+</head>
+<body>
+	<section class="seccion">
+		<div class="cotizador">
+			<form action="index.html" method="post">
+				<h2>Seleccione un monto</h2>
+				<input type="number" value="100" name="monto" id="monto">
+				<h2>Seleccione un banco</h2>
+				<select name="bancos" id="bancos" class="select">
+					<option value="santander">Santander</option>
+					<option value="itau">Itaú</option>
+					<option value="frances">Francés</option>
+				</select>
+				<h2>Seleccione un plazo</h2>
+				<select name="plazos" id="plazos" class="select">
+					<option value="30">30 días</option>
+					<option value="60">60 días</option>
+					<option value="90">90 días</option>
+				</select>
+			</form>
+			<button id="enviar" class="enviar">enviar</button>
+		</div>
+		<div class="resultado">
+			<h2>Has ganado</h2>
+			<p id="resultadoTaza">0</h2>
+			<h2>Monto total</h2>
+			<p id= "montoTotal">0</p>
+			<h2>Taza obtenida</h2>
+			<p id="taza">0</p>
+		</div>
+	</section>
+</body>
+</html>
