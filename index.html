@@ -13,10 +13,10 @@
 				<h2>Seleccione un monto</h2>
 				<input type="number" value="100" name="monto" id="monto">
 				<h2>Seleccione un banco</h2>
-				<select name="bancos" id="bancos" class="select">
-					<option value="santander">Santander</option>
-					<option value="itau">Itaú</option>
-					<option value="frances">Francés</option>
+				<select name="bancos" class="select" id="bancos">
+					<option value="0">Santander</option>
+					<option value="1">Itaú</option>
+					<option value="2">Francés</option>
 				</select>
 				<h2>Seleccione un plazo</h2>
 				<select name="plazos" id="plazos" class="select">
@@ -34,6 +34,8 @@
 			<p id= "montoTotal">0</p>
 			<h2>Taza obtenida</h2>
 			<p id="taza">0</p>
+			<h2>Gracias por elegir</h2>
+			<p id="nombreBanco"></p>
 		</div>
 	</section>
 </body>

@@ -1,32 +1,42 @@
 $(document).ready(function(){
-	$("#enviar").click(function(){
-		const tazaSantander = 10
-		const tazaItau = 11
-		const tazaFrances = 12	
-		let bancos = $("#bancos option:selected").val();
-		plazo = $("#plazos option:selected").val() / 30;
-
-		if (bancos == "santander") {
-			
-			funcionFinal(tazaSantander);
-
-		}if(bancos == "itau"){
-
-			funcionFinal(tazaItau);
-
-		}if(bancos == "frances"){
-
-			funcionFinal(tazaFrances);
-
+	const tazaSantander = 10
+	const tazaItau = 11
+	const tazaFrances = 12
+	
+	class clase{
+		constructor(b, t){
+			this.banco = b;
+			this.taza = t;
 		}
-	});
-	var plazo;
-	var	monto = $("#monto").val();
-	function funcionFinal(taza){
-		let resultadoTaza = taza/monto*100*plazo
-		let montoTotal = parseInt(resultadoTaza) + parseInt(monto);
-		$("#resultadoTaza").html(resultadoTaza);
-		$("#montoTotal").html(montoTotal);
-		$("#taza").html(taza);
+		cliquear(){
+			let plazo = $("#plazos option:selected").val()
+			let	monto = $("#monto").val();
+			let resultadoTaza = this.taza/monto*100*plazo
+			let montoTotal = Number(resultadoTaza) + Number(monto);
+			$("#resultadoTaza").html(resultadoTaza);
+			$("#montoTotal").html(montoTotal);
+			$("#taza").html(this.taza);
+			$("#nombreBanco").html(this.banco);
+		}
+		
 	}
+
+	const bancos = [
+		new clase("Santander", 10,),
+		new clase("Credicoop", 12,),
+		new clase("Francés", 15,),
+	]
+
+	$("#enviar").click(function(){
+		let bancosInput = $("#bancos option:selected").val();
+		bancos[bancosInput].cliquear();
+	});
+	
+	$("#monto").keydown(function(t){
+		if (t.keyCode === 13){
+			let bancosInput = $("#bancos option:selected").val();
+			bancos[bancosInput].cliquear();
+			}
+	})
+
 });
