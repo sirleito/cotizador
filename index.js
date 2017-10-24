@@ -17,22 +17,28 @@ $(document).ready(function(){
 			$("#montoTotal").html(montoTotal);
 			$("#taza").html(this.taza);
 			$("#nombreBanco").html(this.banco);
-		}
-		
+			$("#form").preventDefault();
+		}		
 	}
 
 	const bancos = [
-		new clase("Santander", 10,),
-		new clase("Credicoop", 12,),
-		new clase("Francés", 15,),
+		new clase("Santander", 10),
+		new clase("Credicoop", 12),
+		new clase("Francés", 15),
 	]
+
+	$("#form").submit(function(e){
+
+	     e.preventDefault();
+
+	 });
 
 	$("#enviar").click(function(){
 		let bancosInput = $("#bancos option:selected").val();
 		bancos[bancosInput].cliquear();
 	});
 	
-	$("#monto").keydown(function(t){
+	$("#monto").keydown(function(t){	
 		if (t.keyCode === 13){
 			let bancosInput = $("#bancos option:selected").val();
 			bancos[bancosInput].cliquear();
